@@ -7,6 +7,11 @@ const ADMIN_EMAIL = "joaorsouteiro@gmail.com"
 
 export async function POST(request: NextRequest) {
   try {
+    // Skip during build time
+    if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PUBLIC_SUPABASE_URL) {
+      return NextResponse.json({ error: 'Service not configured' }, { status: 503 })
+    }
+    
     const { email } = await request.json()
     
     if (email !== ADMIN_EMAIL) {

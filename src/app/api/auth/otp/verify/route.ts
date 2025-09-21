@@ -4,6 +4,11 @@ import { cookies } from 'next/headers'
 
 export async function POST(request: NextRequest) {
   try {
+    // Skip during build time
+    if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PUBLIC_SUPABASE_URL) {
+      return NextResponse.json({ error: 'Service not configured' }, { status: 503 })
+    }
+    
     const { email, otp } = await request.json()
     
     const supabase = createServiceClient()
