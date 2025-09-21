@@ -82,10 +82,10 @@ export default function Home() {
                 Pricing
               </Button>
               <Button 
-                onClick={() => router.push('/login')}
+                onClick={() => router.push('/dashboard')}
                 className="btn-primary"
               >
-                Get Started
+                View Dashboard
               </Button>
             </div>
           </div>
@@ -113,10 +113,10 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg"
-              onClick={() => router.push('/login')}
+              onClick={() => router.push('/dashboard')}
               className="btn-primary text-lg px-8 py-4"
             >
-              Start Free Trial
+              View Dashboard
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button 
@@ -177,10 +177,10 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg"
-              onClick={() => router.push('/login')}
+              onClick={() => router.push('/dashboard')}
               className="bg-white text-dental-600 hover:bg-gray-50 text-lg px-8 py-4 font-semibold"
             >
-              Get Started Today
+              View Dashboard
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button 

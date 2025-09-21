@@ -42,15 +42,19 @@ export default function DashboardPage() {
   const [session, setSession] = useState<any>(null)
   const router = useRouter()
 
-  // Check for session on component mount
+  // Mock session for demo - no login required
   useEffect(() => {
-    const sessionData = localStorage.getItem('periosuite-session')
-    if (sessionData) {
-      setSession(JSON.parse(sessionData))
-    } else {
-      router.push('/login')
+    const mockSession = {
+      user: {
+        id: 'admin-1',
+        email: 'joaorsouteiro@gmail.com',
+        name: 'Admin User',
+        role: 'admin',
+        is_admin: true
+      }
     }
-  }, [router])
+    setSession(mockSession)
+  }, [])
 
   const handleLogout = () => {
     localStorage.removeItem('periosuite-session')
