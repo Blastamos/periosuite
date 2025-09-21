@@ -5,14 +5,11 @@ import { Button } from '@/components/ui/button'
 import { 
   Stethoscope, 
   Users, 
-  Calendar, 
   BarChart3, 
   Shield, 
-  Zap, 
   ArrowRight,
   CheckCircle,
   Star,
-  TrendingUp,
   Clock,
   Award
 } from 'lucide-react'
