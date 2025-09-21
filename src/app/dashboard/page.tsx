@@ -39,7 +39,23 @@ export default function DashboardPage() {
     pendingAssessments: 0
   })
   const [loading, setLoading] = useState(true)
+  const [session, setSession] = useState<any>(null)
   const router = useRouter()
+
+  // Check for session on component mount
+  useEffect(() => {
+    const sessionData = localStorage.getItem('periosuite-session')
+    if (sessionData) {
+      setSession(JSON.parse(sessionData))
+    } else {
+      router.push('/login')
+    }
+  }, [router])
+
+  const handleLogout = () => {
+    localStorage.removeItem('periosuite-session')
+    router.push('/login')
+  }
 
   useEffect(() => {
     // Simulate loading dashboard data

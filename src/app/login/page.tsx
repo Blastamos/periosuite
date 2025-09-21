@@ -23,22 +23,14 @@ export default function LoginPage() {
     setLoading(true)
     setError('')
 
-    try {
-      const response = await fetch('/api/auth/otp/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
-      })
-
-      if (response.ok) {
+    // Mock authentication - only allow admin email
+    if (email === 'joaorsouteiro@gmail.com') {
+      setTimeout(() => {
         setStep('otp')
-      } else {
-        const data = await response.json()
-        setError(data.error || 'Failed to send OTP')
-      }
-    } catch (error) {
-      setError('Network error. Please try again.')
-    } finally {
+        setLoading(false)
+      }, 1000)
+    } else {
+      setError('Only admin email is allowed for demo')
       setLoading(false)
     }
   }
@@ -48,22 +40,24 @@ export default function LoginPage() {
     setLoading(true)
     setError('')
 
-    try {
-      const response = await fetch('/api/auth/otp/verify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, otp })
-      })
-
-      if (response.ok) {
+    // Mock OTP verification - accept any 6-digit code
+    if (otp.length === 6 && /^\d+$/.test(otp)) {
+      setTimeout(() => {
+        // Set a simple session in localStorage
+        localStorage.setItem('periosuite-session', JSON.stringify({
+          user: {
+            id: 'admin-1',
+            email: 'joaorsouteiro@gmail.com',
+            name: 'Admin User',
+            role: 'admin',
+            is_admin: true
+          }
+        }))
         router.push('/dashboard')
-      } else {
-        const data = await response.json()
-        setError(data.error || 'Invalid OTP')
-      }
-    } catch (error) {
-      setError('Network error. Please try again.')
-    } finally {
+        setLoading(false)
+      }, 1000)
+    } else {
+      setError('Please enter a valid 6-digit code')
       setLoading(false)
     }
   }
