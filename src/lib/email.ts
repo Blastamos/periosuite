@@ -1,13 +1,15 @@
 import { Resend } from 'resend'
 
-if (!process.env.RESEND_API_KEY) {
-  throw new Error('RESEND_API_KEY is not set')
-}
-
-const resend = new Resend(process.env.RESEND_API_KEY)
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null
 
 export async function sendOTPEmail(email: string, otpCode: string) {
   try {
+    if (!resend) {
+      console.log(`📧 [MOCK] OTP Email would be sent to: ${email}`)
+      console.log(`🔐 [MOCK] OTP Code: ${otpCode}`)
+      return { success: true, data: { id: 'mock-email-id' } }
+    }
+
     const { data, error } = await resend.emails.send({
       from: 'PerioSuite <noreply@resend.dev>', // Using Resend's default domain for testing
       to: [email],
@@ -44,6 +46,11 @@ export async function sendOTPEmail(email: string, otpCode: string) {
 
 export async function sendWelcomeEmail(email: string, name: string) {
   try {
+    if (!resend) {
+      console.log(`📧 [MOCK] Welcome email would be sent to: ${email}`)
+      return { success: true, data: { id: 'mock-welcome-email-id' } }
+    }
+
     const { data, error } = await resend.emails.send({
       from: 'PerioSuite <welcome@resend.dev>', // Using Resend's default domain for testing
       to: [email],
