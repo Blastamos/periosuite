@@ -7,15 +7,20 @@ const ADMIN_EMAIL = "joaorsouteiro@gmail.com"
 
 export async function POST(request: NextRequest) {
   try {
-    // Skip during build time
-    if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PUBLIC_SUPABASE_URL) {
-      return NextResponse.json({ error: 'Service not configured' }, { status: 503 })
-    }
-    
     const { email } = await request.json()
     
+    // Mock authentication - only allow admin email
     if (email !== ADMIN_EMAIL) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+      return NextResponse.json({ error: 'Only admin email is allowed for demo' }, { status: 401 })
+    }
+    
+    // Return success for mock authentication
+    return NextResponse.json({ message: 'OTP sent successfully (mock)' })
+    
+    // Original Supabase code (commented out for demo)
+    /*
+    if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PUBLIC_SUPABASE_URL) {
+      return NextResponse.json({ error: 'Service not configured' }, { status: 503 })
     }
     
     const supabase = createServiceClient()
