@@ -3,7 +3,6 @@
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Brain } from 'lucide-react'
-import Image from 'next/image'
 
 export default function Home() {
   const router = useRouter()
@@ -15,13 +14,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <div className="p-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl">
-              <Image 
-                src="/logo.png" 
-                alt="PerioSuite Logo" 
-                width={32} 
-                height={32} 
-                className="h-8 w-8"
-              />
+              <Brain className="h-8 w-8 text-white" />
             </div>
             <div>
               <h1 className="text-3xl font-black text-white">
@@ -100,13 +93,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex justify-center items-center space-x-4 mb-4">
             <div className="p-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl">
-              <Image 
-                src="/logo.png" 
-                alt="PerioSuite Logo" 
-                width={32} 
-                height={32} 
-                className="h-8 w-8"
-              />
+              <Brain className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-3xl font-black text-white">
               Perio<span className="text-purple-400">Suite</span>
