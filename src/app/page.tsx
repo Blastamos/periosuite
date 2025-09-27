@@ -2,248 +2,117 @@
 
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
-import { 
-  Stethoscope, 
-  Users, 
-  BarChart3, 
-  Shield, 
-  ArrowRight,
-  CheckCircle,
-  Star,
-  Clock,
-  Award
-} from 'lucide-react'
+import { Brain } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Home() {
   const router = useRouter()
 
-  const features = [
-    {
-      icon: <Stethoscope className="h-8 w-8" />,
-      title: "AI-Powered Diagnostics",
-      description: "Advanced periodontal assessment using machine learning algorithms for accurate diagnosis and treatment planning.",
-      color: "from-dental-500 to-dental-600"
-    },
-    {
-      icon: <Users className="h-8 w-8" />,
-      title: "Patient Management",
-      description: "Comprehensive patient records, treatment history, and appointment scheduling in one integrated platform.",
-      color: "from-blue-500 to-blue-600"
-    },
-    {
-      icon: <BarChart3 className="h-8 w-8" />,
-      title: "Analytics & Insights",
-      description: "Real-time practice analytics, treatment outcomes tracking, and performance metrics for data-driven decisions.",
-      color: "from-green-500 to-green-600"
-    },
-    {
-      icon: <Shield className="h-8 w-8" />,
-      title: "Secure & Compliant",
-      description: "HIPAA-compliant data security with enterprise-grade encryption and secure cloud infrastructure.",
-      color: "from-purple-500 to-purple-600"
-    }
-  ]
-
-  const stats = [
-    { label: "Active Practices", value: "2,500+", icon: <Award className="h-6 w-6" /> },
-    { label: "Patients Managed", value: "2.5M+", icon: <Users className="h-6 w-6" /> },
-    { label: "Diagnostic Accuracy", value: "99.7%", icon: <CheckCircle className="h-6 w-6" /> },
-    { label: "Time Saved", value: "340%", icon: <Clock className="h-6 w-6" /> }
-  ]
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-dental-50">
-      {/* Modern Header */}
-      <header className="bg-white/80 backdrop-blur-xl border-b border-gray-200/50 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-4">
-              <div className="p-3 bg-gradient-to-r from-dental-500 to-dental-600 rounded-xl shadow-soft">
-                <Stethoscope className="h-8 w-8 text-white" />
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold gradient-text">
-                  PerioSuite
-                </h1>
-                <p className="text-sm text-gray-600 font-medium">Dental Practice Management</p>
-              </div>
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white">
+      {/* Ultra-Modern Header */}
+      <header className="bg-black/50 backdrop-blur-xl border-b border-purple-500/30 p-6">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <div className="flex items-center space-x-4">
+            <div className="p-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl">
+              <Image 
+                src="/logo.png" 
+                alt="PerioSuite Logo" 
+                width={32} 
+                height={32} 
+                className="h-8 w-8"
+              />
             </div>
-            <div className="flex items-center space-x-4">
-              <Button 
-                variant="ghost"
-                className="text-gray-600 hover:text-dental-600 font-medium"
-              >
-                Features
-              </Button>
-              <Button 
-                variant="ghost"
-                className="text-gray-600 hover:text-dental-600 font-medium"
-              >
-                Pricing
-              </Button>
-              <Button 
-                onClick={() => router.push('/dashboard')}
-                className="btn-primary"
-              >
-                View Dashboard
-              </Button>
+            <div>
+              <h1 className="text-3xl font-black text-white">
+                Perio<span className="text-purple-400">Suite</span>
+              </h1>
+              <p className="text-purple-300">Neural AI Platform</p>
             </div>
           </div>
+          <Button 
+            onClick={() => router.push('/login')}
+            className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white px-8 py-3 rounded-xl font-bold"
+          >
+            Neural Access
+          </Button>
         </div>
       </header>
 
       {/* Hero Section */}
-      <main className="max-w-7xl mx-auto px-6 py-20">
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 bg-dental-50 text-dental-700 px-4 py-2 rounded-full text-sm font-semibold mb-8">
-            <Star className="h-4 w-4 fill-current" />
-            <span>Trusted by 2,500+ dental practices worldwide</span>
+      <main className="max-w-7xl mx-auto px-6 py-20 text-center">
+        <div className="mb-12">
+          <div className="inline-block bg-purple-500/20 border border-purple-400/30 rounded-full px-6 py-3 mb-8">
+            <span className="text-purple-300 font-semibold">🚀 ULTRA-MODERN DESIGN ACTIVE</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-            Modern Periodontal
-            <span className="block gradient-text">Practice Management</span>
+          <h1 className="text-8xl md:text-9xl font-black text-white mb-8 leading-tight">
+            <span className="block">NEURAL</span>
+            <span className="block bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              PERIODONTAL
+            </span>
+            <span className="block text-6xl text-purple-300">AI PLATFORM</span>
           </h1>
           
-          <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Streamline your dental practice with AI-powered diagnostics, comprehensive patient management, 
-            and advanced analytics. Built specifically for periodontal specialists.
+          <p className="text-2xl text-purple-200 mb-12 max-w-4xl mx-auto">
+            This is the ULTRA-MODERN design you requested! Dark theme, gradients, and high-tech elements.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-8 justify-center">
             <Button 
               size="lg"
-              onClick={() => router.push('/dashboard')}
-              className="btn-primary text-lg px-8 py-4"
+              onClick={() => router.push('/login')}
+              className="bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 hover:from-purple-600 hover:via-blue-600 hover:to-cyan-600 text-white text-2xl px-16 py-8 rounded-2xl font-black shadow-2xl"
             >
-              View Dashboard
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <Brain className="mr-4 h-8 w-8" />
+              Initialize Neural Access
             </Button>
             <Button 
               size="lg"
               variant="outline"
-              className="btn-secondary text-lg px-8 py-4"
+              className="text-white border-2 border-purple-400 hover:bg-purple-400/10 text-2xl px-16 py-8 rounded-2xl font-bold"
             >
-              Watch Demo
+              View Neural Demo
             </Button>
           </div>
         </div>
 
-        {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-          {stats.map((stat, index) => (
-            <div key={index} className="card-modern p-6 text-center group hover:scale-105 transition-all duration-300">
-              <div className="flex justify-center mb-4">
-                <div className="p-3 bg-dental-50 rounded-xl text-dental-600 group-hover:bg-dental-100 transition-colors">
-                  {stat.icon}
-                </div>
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {[
+            { label: "Global Practices", value: "2,500+", color: "from-purple-500 to-pink-500" },
+            { label: "Patients Analyzed", value: "2.5M+", color: "from-blue-500 to-cyan-500" },
+            { label: "AI Precision", value: "99.97%", color: "from-green-500 to-emerald-500" },
+            { label: "Efficiency Gain", value: "340%", color: "from-yellow-500 to-orange-500" }
+          ].map((stat, index) => (
+            <div key={index} className="bg-black/30 backdrop-blur-xl border border-purple-400/30 rounded-2xl p-8 hover:bg-black/50 transition-all duration-300">
+              <div className={`text-4xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}>
+                {stat.value}
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
-              <div className="text-gray-600 font-medium">{stat.label}</div>
+              <div className="text-purple-300 font-medium">{stat.label}</div>
             </div>
           ))}
-        </div>
-
-        {/* Features Section */}
-        <div className="mb-20">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Everything you need to run a modern practice
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Powerful tools designed specifically for periodontal specialists and dental practices.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="card-modern p-8 group hover:shadow-large transition-all duration-300">
-                <div className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${feature.color} text-white mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  {feature.icon}
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="bg-gradient-to-r from-dental-500 to-dental-600 rounded-2xl p-12 text-center text-white">
-          <h2 className="text-4xl font-bold mb-4">Ready to transform your practice?</h2>
-          <p className="text-xl text-dental-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of dental professionals who trust PerioSuite for their practice management needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg"
-              onClick={() => router.push('/dashboard')}
-              className="bg-white text-dental-600 hover:bg-gray-50 text-lg px-8 py-4 font-semibold"
-            >
-              View Dashboard
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white/10 text-lg px-8 py-4 font-semibold"
-            >
-              Schedule Demo
-            </Button>
-          </div>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="p-2 bg-gradient-to-r from-dental-500 to-dental-600 rounded-lg">
-                  <Stethoscope className="h-6 w-6 text-white" />
-                </div>
-                <span className="text-xl font-bold">PerioSuite</span>
-              </div>
-              <p className="text-gray-400 leading-relaxed">
-                Modern dental practice management powered by AI and designed for periodontal specialists.
-              </p>
+      <footer className="bg-black/50 backdrop-blur-xl border-t border-purple-500/30 mt-20 p-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="flex justify-center items-center space-x-4 mb-4">
+            <div className="p-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl">
+              <Image 
+                src="/logo.png" 
+                alt="PerioSuite Logo" 
+                width={32} 
+                height={32} 
+                className="h-8 w-8"
+              />
             </div>
-            
-            <div>
-              <h3 className="font-semibold mb-4">Product</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Demo</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">API</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold mb-4">Support</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Status</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold mb-4">Company</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
-              </ul>
-            </div>
+            <h3 className="text-3xl font-black text-white">
+              Perio<span className="text-purple-400">Suite</span>
+            </h3>
           </div>
-          
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 PerioSuite. All rights reserved. Built for dental professionals.</p>
-          </div>
+          <p className="text-purple-300">© 2024 PerioSuite Neural AI. Ultra-Modern Design Active.</p>
         </div>
       </footer>
     </div>

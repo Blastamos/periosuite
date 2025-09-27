@@ -39,27 +39,7 @@ export default function DashboardPage() {
     pendingAssessments: 0
   })
   const [loading, setLoading] = useState(true)
-  const [session, setSession] = useState<any>(null)
   const router = useRouter()
-
-  // Mock session for demo - no login required
-  useEffect(() => {
-    const mockSession = {
-      user: {
-        id: 'admin-1',
-        email: 'joaorsouteiro@gmail.com',
-        name: 'Admin User',
-        role: 'admin',
-        is_admin: true
-      }
-    }
-    setSession(mockSession)
-  }, [])
-
-  const handleLogout = () => {
-    localStorage.removeItem('periosuite-session')
-    router.push('/login')
-  }
 
   useEffect(() => {
     // Simulate loading dashboard data
@@ -84,6 +64,11 @@ export default function DashboardPage() {
     loadDashboardData()
   }, [])
 
+  const handleLogout = () => {
+    // Clear session and redirect to login
+    document.cookie = 'periosuite-session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+    router.push('/login')
+  }
 
   if (loading) {
     return (
